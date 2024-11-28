@@ -29,7 +29,7 @@ export class UpdateColaboradoresDto {
 export class FindColaboradoresDto {
   @IsString()
   @IsOptional()
-  nome?: string; // Buscar Colaboradoreses pelo nome (opcional)
+  nome?: string;
 
   @IsNumber()
   @IsNotEmpty()
@@ -37,18 +37,18 @@ export class FindColaboradoresDto {
 }
 
 export class ColaboradoresResponseDto {
-  id: number; // ID do Colaboradores
-  nome: string; // Nome do Colaboradores
+  id: number;
+  nome: string;
   nivel: number;
 }
 
 export class DeleteColaboradoresDto {
   @IsNumber()
-  id: number; // ID do Colaboradores a ser deletado
+  id: number;
 }
 
 export class FindColaboradoresParamsDto {
   @IsInt()
   @IsPositive()
-  id: number; // O ID deve ser um número inteiro positivo
+  id: number;
 }
