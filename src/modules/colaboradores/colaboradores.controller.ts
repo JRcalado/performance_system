@@ -57,8 +57,8 @@ export class ColaboradoresController {
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: number): Promise<void> {
-    return this.colaboradoresService.remove(id);
+  async remove(@Param() params: FindColaboradoresParamsDto): Promise<void> {
+    return this.colaboradoresService.remove(params.id);
   }
 
   @Patch(':id')

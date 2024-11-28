@@ -2,6 +2,10 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Competencia } from './competencias.entity';
+import {
+  CreateCompetenciasDto,
+  UpdateCompetenciasDto,
+} from '../competencias/dto/competencias.dto';
 
 @Injectable()
 export class CompetenciasService {
@@ -17,11 +21,16 @@ export class CompetenciasService {
   async findOne(id: number): Promise<Competencia> {
     return this.competenciaRepository.findOne({
       where: { id },
-      relations: ['pilar'],
     });
   }
 
-  async create(competencia: Competencia): Promise<Competencia> {
+  async create(
+    createCompetenciesDto: CreateCompetenciasDto,
+  ): Promise<Competencia> {
+    const competencia = this.competenciaRepository.create({
+      nome: createCompetenciesDto.nome,
+      pilar: { id: createCompetenciesDto.pilar },
+    });
     return this.competenciaRepository.save(competencia);
   }
 
@@ -31,5 +40,24 @@ export class CompetenciasService {
       throw new NotFoundException(`Entity with ID ${id} not found`);
     }
     await this.competenciaRepository.remove(entity);
+  }
+
+  async update(
+    id: number,
+    updateCompetenciasDto: UpdateCompetenciasDto,
+  ): Promise<Competencia> {
+    // Verifique se o pilar existe
+    const competencias = await this.competenciaRepository.findOne({
+      where: { id },
+    });
+    if (!competencias) {
+      throw new NotFoundException(`Competencias com ID ${id} não encontrado`);
+    }
+
+    // Atualize apenas os campos enviados no DTO
+    Object.assign(competencias, updateCompetenciasDto);
+
+    // Salve as mudanças no banco de dados
+    return this.competenciaRepository.save(competencias);
   }
 }
