@@ -13,7 +13,6 @@ import { HabilidadesService } from './habilidades.service';
 import {
   HabilidadesResponseDto,
   FindHabilidadesParamsDto,
-  FindHabilidadesDto,
   CreateHabilidadesDto,
   DeleteHabilidadesDto,
   UpdateHabilidadesDto,
