@@ -24,7 +24,14 @@ export class HabilidadesController {
 
   @Get()
   async findAll(): Promise<HabilidadesResponseDto[]> {
-    return this.habilidadesService.findAll();
+    const habilidades = await this.habilidadesService.findAll();
+    return habilidades.map((habilidade) => ({
+      id: habilidade.id,
+      nome: habilidade.nome,
+      nivel: habilidade.nivel,
+      descricao: habilidade.descricao,
+      competencia: habilidade.competencia.id,
+    }));
   }
 
   @Get(':id')
@@ -44,9 +51,9 @@ export class HabilidadesController {
       nome: habilidades.nome,
       nivel: habilidades.nivel,
       descricao: habilidades.descricao,
+      competencia: habilidades.competencia.id,
     };
   }
-
   @Post()
   async create(
     @Body() createHabilidadesDto: CreateHabilidadesDto,
@@ -58,6 +65,7 @@ export class HabilidadesController {
       nome: habilidades.nome,
       nivel: habilidades.nivel,
       descricao: habilidades.descricao,
+      competencia: habilidades.competencia.id,
     };
   }
 
@@ -87,6 +95,7 @@ export class HabilidadesController {
       nome: habilidades.nome,
       nivel: habilidades.nivel,
       descricao: habilidades.descricao,
+      competencia: habilidades.competencia.id,
     };
   }
 }

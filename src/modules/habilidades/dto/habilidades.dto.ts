@@ -19,6 +19,10 @@ export class CreateHabilidadesDto {
   @IsString()
   @IsNotEmpty()
   descricao: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  competencia: number;
 }
 
 export class UpdateHabilidadesDto {
@@ -29,6 +33,10 @@ export class UpdateHabilidadesDto {
   @IsNumber()
   @IsNotEmpty()
   nivel?: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  competencia?: number;
 
   @IsString()
   @IsNotEmpty()
@@ -43,6 +51,10 @@ export class FindHabilidadesDto {
   @IsNotEmpty()
   nivel?: number;
 
+  @IsNumber()
+  @IsNotEmpty()
+  competencia?: number;
+
   @IsString()
   @IsNotEmpty()
   descricao?: string;
@@ -53,6 +65,7 @@ export class HabilidadesResponseDto {
   nome: string;
   nivel: number;
   descricao: string;
+  competencia: number;
 }
 
 export class DeleteHabilidadesDto {

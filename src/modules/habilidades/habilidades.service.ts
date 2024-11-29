@@ -28,7 +28,16 @@ export class HabilidadesService {
   async create(
     createHabilidadesDto: CreateHabilidadesDto,
   ): Promise<Habilidade> {
-    return this.habilidadeRepository.save(createHabilidadesDto);
+    const habilidade = this.habilidadeRepository.create({
+      ...createHabilidadesDto,
+      competencia: { id: createHabilidadesDto.competencia },
+    });
+    const habilidadeRetorno = this.habilidadeRepository.save(habilidade);
+
+    if (!habilidadeRetorno) {
+      throw new Error('Erro ao criar habilidade');
+    }
+    return habilidadeRetorno;
   }
 
   async remove(id: number): Promise<void> {
@@ -47,9 +56,11 @@ export class HabilidadesService {
     if (!habilidade) {
       throw new NotFoundException(`Habilidade with ID ${id} not found`);
     }
-    return this.habilidadeRepository.save({
+    const updatedHabilidade = {
       ...habilidade,
       ...updateHabilidadesDto,
-    });
+      competencia: { id: updateHabilidadesDto.competencia },
+    };
+    return this.habilidadeRepository.save(updatedHabilidade);
   }
 }
