@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Pilar } from './pilar.entity';
-import { CreatePilarDto, UpdatePilarDto } from './dto/pilar.dto';
+import { Pilar } from '../entities/pilar.entity';
+import { CreatePilarDto, UpdatePilarDto } from '../dto/pilar.dto';
 
 @Injectable()
 export class PilaresService {

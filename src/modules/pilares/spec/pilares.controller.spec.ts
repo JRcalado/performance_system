@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PilarController } from './pilares.controller';
+import { PilarController } from '../controllers/pilares.controller';
 
 describe('PilaresController', () => {
   let controller: PilarController;

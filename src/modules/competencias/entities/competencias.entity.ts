@@ -5,7 +5,7 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { Pilar } from '../../pilares/pilar.entity';
+import { Pilar } from '../../pilares/entities/pilar.entity';
 import { Habilidade } from '../../habilidades/entities/habilidades.entity';
 
 @Entity()

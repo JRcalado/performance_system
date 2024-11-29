@@ -14,8 +14,8 @@ import {
   FindPilarParamsDto,
   PilarResponseDto,
   UpdatePilarDto,
-} from './dto/pilar.dto';
-import { PilaresService } from './pilares.service';
+} from '../dto/pilar.dto';
+import { PilaresService } from '../services/pilares.service';
 
 @Controller('pilares')
 export class PilarController {

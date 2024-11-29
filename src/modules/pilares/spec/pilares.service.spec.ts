@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PilaresService } from './pilares.service';
+import { PilaresService } from '../services/pilares.service';
 
 describe('PilaresService', () => {
   let service: PilaresService;
