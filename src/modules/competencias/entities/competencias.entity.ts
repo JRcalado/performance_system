@@ -6,7 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Pilar } from '../../pilares/pilar.entity';
-import { Habilidade } from '../habilidades/habilidades.entity';
+import { Habilidade } from '../../habilidades/entities/habilidades.entity';
 
 @Entity()
 export class Competencia {

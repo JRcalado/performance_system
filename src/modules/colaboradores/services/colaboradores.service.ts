@@ -1,11 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Colaborador } from './entities/colaboradores.entity';
+import { Colaborador } from '../entities/colaboradores.entity';
 import {
   CreateColaboradoresDto,
   UpdateColaboradoresDto,
-} from './dto/colaboradores.dto';
+} from '../dto/colaboradores.dto';
 
 @Injectable()
 export class ColaboradoresService {
