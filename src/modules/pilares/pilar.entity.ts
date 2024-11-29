@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Competencia } from '../competencias/competencias.entity';
+import { Competencia } from '../competencias/entities/competencias.entity';
 
 @Entity()
 export class Pilar {

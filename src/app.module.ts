@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PilaresModule } from './modules/pilares/pilares.module';
 import { CompetenciasModule } from './modules/competencias/competencias.module';
 import { HabilidadesModule } from './modules/habilidades/habilidades.module';
-import { EvaluationModule } from './modules/evaluation/evaluation.module';
+import { AvaliacaoModule } from './modules/avaliacao/avaliacao.module';
 
 @Module({
   imports: [
@@ -18,7 +18,7 @@ import { EvaluationModule } from './modules/evaluation/evaluation.module';
     PilaresModule,
     CompetenciasModule,
     HabilidadesModule,
-    EvaluationModule,
+    AvaliacaoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

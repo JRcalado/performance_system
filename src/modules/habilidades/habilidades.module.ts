@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { HabilidadesService } from './habilidades.service';
+import { HabilidadesService } from './services/habilidades.service';
 import { HabilidadesController } from './habilidades.controller';
 import { Habilidade } from './habilidades.entity';
 

@@ -1,1 +1,0 @@
-Improve CRUD consistency. Add documentation for relationships with competencias.

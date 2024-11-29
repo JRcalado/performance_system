@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ColaboradoresService } from './colaboradores.service';
 import { ColaboradoresController } from './colaboradores.controller';
-import { Colaborador } from './colaboradores.entity';
+import { Colaborador } from './entities/colaboradores.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Colaborador])],
